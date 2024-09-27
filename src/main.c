@@ -428,7 +428,7 @@ static void check_odometer(data *d) {
 static void do_rc_move(data *d) {
     if (d->rc_steps > 0) {
         d->rc_current = d->rc_current * 0.95 + d->rc_current_target * 0.05;
-        if (d->motor.abs_erpm > 800) {
+        if (d->motor.abs_erpm > 1600) { // Ming speed
             d->rc_current = 0;
         }
         set_current(d, d->rc_current);
